@@ -1,0 +1,41 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
+  padding: 20px var(--gutter);
+  background: var(--paper);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.views {
+  display: flex;
+  gap: 28px;
+  color: var(--muted);
+}
+
+.active {
+  color: var(--ink);
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .views {
+    display: none;
+  }
+  .header {
+    grid-template-columns: 1fr auto;
+  }
+}
