@@ -12,6 +12,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: var(--paper);
@@ -44,5 +48,14 @@ img {
 @media (max-width: 600px) {
   :root {
     --gutter: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition-duration: 0ms !important;
   }
 }

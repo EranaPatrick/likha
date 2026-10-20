@@ -1,10 +1,12 @@
 # todo
 
 ## now
-- [ ] fake data (artists + artworks json) so i can build ui first
-- [ ] featured section at the top (big images, admin picks)
+- [x] fake data (artists + artworks json) so i can build ui first
+- [x] featured section at the top (big images, admin picks)
 - [ ] main feed below featured (flow view = loose grid, list view = rows)
-- [ ] artwork card: image, title caps, artist, [ n ] count thing
+  - [x] flow grid
+  - [ ] list view + make the header toggle actually work
+- [x] artwork card: image, title caps, artist, [ n ] count thing
 - [ ] click artwork -> image slides left, details panel opens beside it, esc / x closes
 - [ ] artist page (clickable names)
 
