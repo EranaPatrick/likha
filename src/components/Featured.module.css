@@ -1,0 +1,38 @@
+.featured {
+  padding: 40px var(--gutter) 80px;
+  border-bottom: 1px solid var(--line);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  flex: 0 0 min(46vw, 640px);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 600px) {
+  .row {
+    gap: 16px;
+  }
+  .item {
+    flex-basis: 82vw;
+  }
+}
