@@ -3,11 +3,14 @@
 ## now
 - [x] fake data (artists + artworks json) so i can build ui first
 - [x] featured section at the top (big images, admin picks)
-- [ ] main feed below featured (flow view = loose grid, list view = rows)
+- [x] main feed below featured (flow view = loose grid, list view = rows)
   - [x] flow grid
-  - [ ] list view + make the header toggle actually work
+  - [x] list view + make the header toggle actually work
+  - [ ] fade between flow and list instead of just swapping
 - [x] artwork card: image, title caps, artist, [ n ] count thing
 - [ ] click artwork -> image slides left, details panel opens beside it, esc / x closes
+  - [ ] panel component (title, artist, medium, size, price, year, description)
+  - [ ] like / follow / inquire links in the panel (signed out for now)
 - [ ] artist page (clickable names)
 
 ## later
