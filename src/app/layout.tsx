@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import Header from "@/components/Header";
+import { ViewProvider } from "@/components/ViewContext";
 import "./globals.css";
 
 const sans = Hanken_Grotesk({
@@ -17,8 +18,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={sans.variable}>
       <body>
-        <Header />
-        {children}
+        <ViewProvider>
+          <Header />
+          {children}
+        </ViewProvider>
       </body>
     </html>
   );
