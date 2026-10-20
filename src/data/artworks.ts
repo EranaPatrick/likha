@@ -186,3 +186,15 @@ export const artworks: Artwork[] = [
     featured: false,
   },
 ];
+
+export function getArtist(slug: string) {
+  return artists.find((a) => a.slug === slug);
+}
+
+export function formatPrice(n: number) {
+  return "P" + n.toLocaleString("en-US");
+}
+
+export function featuredArtworks() {
+  return artworks.filter((a) => a.featured);
+}
