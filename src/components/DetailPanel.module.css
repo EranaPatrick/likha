@@ -1,0 +1,59 @@
+.panel {
+  position: relative;
+  padding: 0 0 0 var(--gutter);
+  border-left: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  padding-right: 40px;
+}
+
+.artist {
+  display: inline-block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  row-gap: 6px;
+  margin: 28px 0;
+}
+
+.facts dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.desc {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--ink);
+}

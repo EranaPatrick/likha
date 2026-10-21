@@ -9,7 +9,7 @@
   - [x] fade between flow and list instead of just swapping
 - [x] artwork card: image, title caps, artist, [ n ] count thing
 - [ ] click artwork -> image slides left, details panel opens beside it, esc / x closes
-  - [ ] panel component (title, artist, medium, size, price, year, description)
+  - [x] panel component (title, artist, medium, size, price, year, description)
   - [ ] like / follow / inquire links in the panel (signed out for now)
 - [ ] artist page (clickable names)
 
