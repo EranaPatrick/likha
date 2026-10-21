@@ -12,7 +12,7 @@ export default function Feed() {
 
   if (view === "list") {
     return (
-      <section className={styles.feed}>
+      <section key={view} className={styles.feed}>
         <ul className={styles.list}>
           {artworks.map((a) => (
             <li key={a.id} className={`${styles.row} caps`}>
@@ -34,7 +34,7 @@ export default function Feed() {
   }
 
   return (
-    <section className={styles.feed}>
+    <section key={view} className={styles.feed}>
       <div className={styles.flow}>
         {artworks.map((a, i) => (
           <div key={a.id} className={`${styles.cell} ${styles["v" + (i % 4)]}`}>

@@ -6,7 +6,7 @@
 - [x] main feed below featured (flow view = loose grid, list view = rows)
   - [x] flow grid
   - [x] list view + make the header toggle actually work
-  - [ ] fade between flow and list instead of just swapping
+  - [x] fade between flow and list instead of just swapping
 - [x] artwork card: image, title caps, artist, [ n ] count thing
 - [ ] click artwork -> image slides left, details panel opens beside it, esc / x closes
   - [ ] panel component (title, artist, medium, size, price, year, description)

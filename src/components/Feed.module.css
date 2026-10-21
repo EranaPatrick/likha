@@ -1,5 +1,21 @@
 .feed {
   padding: 80px var(--gutter) 160px;
+  animation: fadeIn 500ms ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed {
+    animation: none;
+  }
 }
 
 .flow {
