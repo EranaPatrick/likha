@@ -132,3 +132,27 @@
     grid-row: 1;
   }
 }
+
+.opened {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 0;
+  margin-bottom: 120px;
+}
+
+.openedImg img {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-right: var(--gutter);
+}
+
+@media (max-width: 800px) {
+  .opened {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+  .openedImg img {
+    padding-right: 0;
+  }
+}

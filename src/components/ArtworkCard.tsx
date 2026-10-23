@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { getArtist, type Artwork } from "@/data/artworks";
@@ -6,17 +8,22 @@ import styles from "./ArtworkCard.module.css";
 export default function ArtworkCard({
   artwork,
   priority = false,
+  onOpen,
 }: {
   artwork: Artwork;
   priority?: boolean;
+  onOpen?: (a: Artwork) => void;
 }) {
   const artist = getArtist(artwork.artist);
 
   return (
     <figure className={styles.card}>
-      <div
+      <button
+        type="button"
         className={styles.frame}
         style={{ aspectRatio: `${artwork.width} / ${artwork.height}` }}
+        onClick={() => onOpen?.(artwork)}
+        aria-label={`Open ${artwork.title}`}
       >
         <Image
           src={artwork.image}
@@ -26,7 +33,7 @@ export default function ArtworkCard({
           priority={priority}
           className={styles.img}
         />
-      </div>
+      </button>
       <figcaption className={`${styles.caption} caps`}>
         <span className={styles.title}>{artwork.title}</span>
         <span className={styles.meta}>
