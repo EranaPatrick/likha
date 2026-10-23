@@ -31,6 +31,18 @@ export default function DetailPanel({
         <dd>{formatPrice(artwork.price)}</dd>
       </dl>
       <p className={styles.desc}>{artwork.description}</p>
+      <div className={`${styles.actions} caps`}>
+        <button type="button" className={styles.action}>
+          Like [ {artwork.likes} ]
+        </button>
+        <button type="button" className={styles.action}>
+          Follow {artist?.name}
+        </button>
+        <button type="button" className={styles.action}>
+          Inquire
+        </button>
+      </div>
+      <p className={styles.note}>Sign in to like, follow or inquire.</p>
     </aside>
   );
 }

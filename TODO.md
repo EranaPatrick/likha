@@ -10,7 +10,7 @@
 - [x] artwork card: image, title caps, artist, [ n ] count thing
 - [ ] click artwork -> image slides left, details panel opens beside it, esc / x closes
   - [x] panel component (title, artist, medium, size, price, year, description)
-  - [ ] like / follow / inquire links in the panel (signed out for now)
+  - [x] like / follow / inquire links in the panel (signed out for now)
 - [ ] artist page (clickable names)
 
 ## later
