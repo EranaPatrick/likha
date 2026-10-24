@@ -11,7 +11,8 @@
 - [ ] click artwork -> image slides left, details panel opens beside it, esc / x closes
   - [x] panel component (title, artist, medium, size, price, year, description)
   - [x] like / follow / inquire links in the panel (signed out for now)
-  - [x] hook panel up to the feed (esc closes), still needs the slide animation
+  - [x] hook panel up to the feed (esc closes)
+  - [x] slide animation when it opens
 - [ ] artist page (clickable names)
 
 ## later
