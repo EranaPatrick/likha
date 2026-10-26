@@ -1,0 +1,35 @@
+.page {
+  padding: 80px var(--gutter) 160px;
+}
+
+.head {
+  margin-bottom: 96px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.meta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 32px;
+  row-gap: 96px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 64px;
+  }
+}
