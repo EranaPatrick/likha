@@ -15,7 +15,8 @@
   - [x] slide animation when it opens
 - [ ] artist page (clickable names)
   - [x] basic page w/ name, city, their works
-  - [ ] bio + follow link, open panel from here too
+  - [x] bio + follow link
+  - [ ] open panel from here too
 
 ## later
 - [ ] db (prob sqlite + prisma first)

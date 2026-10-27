@@ -25,6 +25,10 @@ export default async function ArtistPage({
         <p className={`${styles.meta} caps`}>
           {artist.city} / [ {works.length} ] works
         </p>
+        <p className={styles.bio}>{artist.bio}</p>
+        <a href="#" className={`${styles.follow} caps`}>
+          Follow
+        </a>
       </header>
 
       <div className={styles.grid}>

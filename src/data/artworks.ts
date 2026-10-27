@@ -5,6 +5,7 @@ export type Artist = {
   slug: string;
   name: string;
   city: string;
+  bio: string;
 };
 
 export type Artwork = {
@@ -25,10 +26,10 @@ export type Artwork = {
 };
 
 export const artists: Artist[] = [
-  { slug: "mara-santos", name: "Mara Santos", city: "Quezon City" },
-  { slug: "jun-dela-cruz", name: "Jun Dela Cruz", city: "Cebu" },
-  { slug: "ana-reyes", name: "Ana Reyes", city: "Baguio" },
-  { slug: "leo-bautista", name: "Leo Bautista", city: "Manila" },
+  { slug: "mara-santos", name: "Mara Santos", city: "Quezon City", bio: "Paints mostly at night, mostly from memory. Studied fine arts at UP Diliman and still shares a studio with two friends." },
+  { slug: "jun-dela-cruz", name: "Jun Dela Cruz", city: "Cebu", bio: "Self taught. Works with oils on old wood panels he finds around Cebu. Slow worker, maybe six paintings a year." },
+  { slug: "ana-reyes", name: "Ana Reyes", city: "Baguio", bio: "Landscapes and weather. Moved up to Baguio for the cold and ended up painting the fog instead." },
+  { slug: "leo-bautista", name: "Leo Bautista", city: "Manila", bio: "Portraits of people on the jeepney and the LRT. Sketches first, paints weeks later." },
 ];
 
 export const artworks: Artwork[] = [
