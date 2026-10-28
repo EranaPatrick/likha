@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { artworks, getArtist, formatPrice, type Artwork } from "@/data/artworks";
@@ -12,6 +12,7 @@ import styles from "./Feed.module.css";
 export default function Feed() {
   const { view } = useView();
   const [open, setOpen] = useState<Artwork | null>(null);
+  const openedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -20,6 +21,11 @@ export default function Feed() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  // bring the opened work into view, otherwise it opens off screen when you clicked low in the feed
+  useEffect(() => {
+    if (open) openedRef.current?.scrollIntoView({ block: "start" });
+  }, [open]);
 
   if (view === "list") {
     return (
@@ -47,7 +53,7 @@ export default function Feed() {
   return (
     <section key={view} className={styles.feed}>
       {open && (
-        <div className={styles.opened}>
+        <div ref={openedRef} className={styles.opened}>
           <div className={styles.openedImg}>
             <Image src={open.image} alt={open.title} width={open.width} height={open.height} sizes="50vw" />
           </div>
