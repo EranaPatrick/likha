@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import ArtworkCard from "@/components/ArtworkCard";
+import ArtistWorks from "@/components/ArtistWorks";
 import { artists, artworks, getArtist } from "@/data/artworks";
 import styles from "./page.module.css";
 
@@ -31,11 +31,7 @@ export default async function ArtistPage({
         </a>
       </header>
 
-      <div className={styles.grid}>
-        {works.map((w) => (
-          <ArtworkCard key={w.id} artwork={w} />
-        ))}
-      </div>
+      <ArtistWorks works={works} />
     </main>
   );
 }

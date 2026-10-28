@@ -16,7 +16,7 @@
 - [ ] artist page (clickable names)
   - [x] basic page w/ name, city, their works
   - [x] bio + follow link
-  - [ ] open panel from here too
+  - [x] open panel from here too
 
 ## later
 - [ ] db (prob sqlite + prisma first)
