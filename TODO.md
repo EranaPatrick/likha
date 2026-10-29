@@ -27,6 +27,9 @@
 - [ ] admin page to pick featured works
 - [ ] artist upload form
 - [ ] mobile pass
+  - [x] flow/list toggle on phone
+  - [x] detail panel stacks under the image
+  - [ ] check header + featured at 360px
 - [ ] deploy somewhere
 
 ## design notes for myself
