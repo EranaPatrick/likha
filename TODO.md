@@ -29,7 +29,7 @@
 - [ ] mobile pass
   - [x] flow/list toggle on phone
   - [x] detail panel stacks under the image
-  - [ ] check header + featured at 360px
+  - [x] check header + featured at 360px
 - [ ] deploy somewhere
 
 ## design notes for myself

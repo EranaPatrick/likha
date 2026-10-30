@@ -36,6 +36,9 @@
     grid-template-columns: 1fr auto;
     row-gap: 10px;
   }
+  .links {
+    gap: 16px;
+  }
   .views {
     grid-row: 2;
     grid-column: 1 / -1;
