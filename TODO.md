@@ -8,15 +8,16 @@
   - [x] list view + make the header toggle actually work
   - [x] fade between flow and list instead of just swapping
 - [x] artwork card: image, title caps, artist, [ n ] count thing
-- [ ] click artwork -> image slides left, details panel opens beside it, esc / x closes
+- [x] click artwork -> image slides left, details panel opens beside it, esc / x closes
   - [x] panel component (title, artist, medium, size, price, year, description)
   - [x] like / follow / inquire links in the panel (signed out for now)
   - [x] hook panel up to the feed (esc closes)
   - [x] slide animation when it opens
-- [ ] artist page (clickable names)
+- [x] artist page (clickable names)
   - [x] basic page w/ name, city, their works
   - [x] bio + follow link
   - [x] open panel from here too
+  - [ ] artist index page (/artists) listing everyone
 
 ## later
 - [ ] db (prob sqlite + prisma first)
