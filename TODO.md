@@ -17,7 +17,7 @@
   - [x] basic page w/ name, city, their works
   - [x] bio + follow link
   - [x] open panel from here too
-  - [ ] artist index page (/artists) listing everyone
+  - [x] artist index page (/artists) listing everyone
 
 ## later
 - [ ] db (prob sqlite + prisma first)

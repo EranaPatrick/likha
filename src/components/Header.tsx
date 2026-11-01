@@ -31,6 +31,7 @@ export default function Header() {
       </nav>
 
       <nav className={`${styles.links} caps`}>
+        <Link href="/artists">Artists</Link>
         <Link href="/about">About</Link>
         <Link href="/login">Sign in</Link>
       </nav>
