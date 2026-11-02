@@ -31,6 +31,7 @@
   - [x] flow/list toggle on phone
   - [x] detail panel stacks under the image
   - [x] check header + featured at 360px
+- [x] 404 page
 - [ ] deploy somewhere
 
 ## design notes for myself

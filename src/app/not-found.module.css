@@ -1,0 +1,22 @@
+.page {
+  padding: 80px var(--gutter) 160px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.text {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+.link {
+  color: var(--ink);
+  text-underline-offset: 3px;
+}
