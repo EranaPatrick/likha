@@ -27,7 +27,7 @@
 - [ ] inquire button -> message to artist
 - [ ] admin page to pick featured works
 - [ ] artist upload form
-- [ ] mobile pass
+- [x] mobile pass
   - [x] flow/list toggle on phone
   - [x] detail panel stacks under the image
   - [x] check header + featured at 360px
