@@ -7,6 +7,16 @@ export function generateStaticParams() {
   return artists.map((a) => ({ slug: a.slug }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const artist = getArtist(slug);
+  return { title: artist ? `${artist.name} / Likha` : "Likha" };
+}
+
 export default async function ArtistPage({
   params,
 }: {
