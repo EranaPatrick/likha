@@ -21,7 +21,7 @@
 
 ## later
 - [ ] db (prob sqlite + prisma first)
-- [ ] auth, browsing stays public, sign in only to like / follow / inquire
+- [ ] auth (placeholder /login page is there), browsing stays public, sign in only to like / follow / inquire
 - [ ] one account type, "i'm an artist" toggle turns on artist profile + uploads
 - [ ] likes + follows
 - [ ] inquire button -> message to artist
