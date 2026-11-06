@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ViewProvider } from "@/components/ViewContext";
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ViewProvider>
           <Header />
           {children}
+          <Footer />
         </ViewProvider>
       </body>
     </html>
