@@ -34,7 +34,7 @@
 - [x] 404 page
 - [ ] deploy somewhere
 - [x] keyboard focus outlines (tabbing around had nothing visible)
-- [ ] sort feed (newest / price)
+- [x] sort feed (newest / price)
 - [ ] medium filter above the feed
 
 ## design notes for myself

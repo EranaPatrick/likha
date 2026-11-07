@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { artworks, getArtist, formatPrice, type Artwork } from "@/data/artworks";
@@ -9,8 +9,29 @@ import DetailPanel from "./DetailPanel";
 import { useView } from "./ViewContext";
 import styles from "./Feed.module.css";
 
+type Sort = "newest" | "price";
+
 export default function Feed() {
   const { view } = useView();
+  const [sort, setSort] = useState<Sort>("newest");
+  const items = useMemo(() => {
+    const copy = [...artworks];
+    if (sort === "price") copy.sort((a, b) => a.price - b.price);
+    else copy.sort((a, b) => b.year - a.year);
+    return copy;
+  }, [sort]);
+
+  const sortBar = (
+    <div className={`${styles.sortBar} caps`}>
+      <span>Sort</span>
+      <button type="button" className={styles.sortBtn} onClick={() => setSort("newest")} aria-pressed={sort === "newest"}>
+        {sort === "newest" ? "[•]" : "[ ]"} Newest
+      </button>
+      <button type="button" className={styles.sortBtn} onClick={() => setSort("price")} aria-pressed={sort === "price"}>
+        {sort === "price" ? "[•]" : "[ ]"} Price
+      </button>
+    </div>
+  );
   const [open, setOpen] = useState<Artwork | null>(null);
   const openedRef = useRef<HTMLDivElement>(null);
 
@@ -30,8 +51,9 @@ export default function Feed() {
   if (view === "list") {
     return (
       <section key={view} className={styles.feed}>
+        {sortBar}
         <ul className={styles.list}>
-          {artworks.map((a) => (
+          {items.map((a) => (
             <li key={a.id} className={`${styles.row} caps`}>
               <span className={styles.thumb}>
                 <Image src={a.image} alt={a.title} fill sizes="80px" />
@@ -52,6 +74,7 @@ export default function Feed() {
 
   return (
     <section key={view} className={styles.feed}>
+      {sortBar}
       {open && (
         <div ref={openedRef} className={styles.opened}>
           <div className={styles.openedImg}>
@@ -61,7 +84,7 @@ export default function Feed() {
         </div>
       )}
       <div className={styles.flow}>
-        {artworks.map((a, i) => (
+        {items.map((a, i) => (
           <div key={a.id} className={`${styles.cell} ${styles["v" + (i % 4)]}`}>
             <ArtworkCard artwork={a} onOpen={setOpen} />
           </div>
