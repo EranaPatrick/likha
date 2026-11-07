@@ -33,6 +33,9 @@
   - [x] check header + featured at 360px
 - [x] 404 page
 - [ ] deploy somewhere
+- [x] keyboard focus outlines (tabbing around had nothing visible)
+- [ ] sort feed (newest / price)
+- [ ] medium filter above the feed
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors
