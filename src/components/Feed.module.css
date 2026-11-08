@@ -217,3 +217,13 @@
 .sortBtn:hover {
   color: var(--ink);
 }
+
+/* two bars stacked, dont want 96px of nothing between them */
+.sortBar + .sortBar {
+  margin-top: -32px;
+}
+
+.sortBar {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}

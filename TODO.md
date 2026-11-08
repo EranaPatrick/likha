@@ -35,7 +35,8 @@
 - [ ] deploy somewhere
 - [x] keyboard focus outlines (tabbing around had nothing visible)
 - [x] sort feed (newest / price)
-- [ ] medium filter above the feed
+- [x] medium filter above the feed
+  - [x] tighten the gap between filter and sort rows
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors
