@@ -11,15 +11,34 @@ import styles from "./Feed.module.css";
 
 type Sort = "newest" | "price";
 
+// "Oil on canvas" -> "Oil"
+const mediaOf = (m: string) => m.split(" ")[0];
+const media = Array.from(new Set(artworks.map((a) => mediaOf(a.medium))));
+
 export default function Feed() {
   const { view } = useView();
   const [sort, setSort] = useState<Sort>("newest");
+  const [medium, setMedium] = useState<string | null>(null);
   const items = useMemo(() => {
-    const copy = [...artworks];
+    const copy = artworks.filter((a) => !medium || mediaOf(a.medium) === medium);
     if (sort === "price") copy.sort((a, b) => a.price - b.price);
     else copy.sort((a, b) => b.year - a.year);
     return copy;
-  }, [sort]);
+  }, [sort, medium]);
+
+  const filterBar = (
+    <div className={`${styles.sortBar} caps`}>
+      <span>Medium</span>
+      <button type="button" className={styles.sortBtn} onClick={() => setMedium(null)} aria-pressed={!medium}>
+        {!medium ? "[•]" : "[ ]"} All
+      </button>
+      {media.map((m) => (
+        <button key={m} type="button" className={styles.sortBtn} onClick={() => setMedium(m)} aria-pressed={medium === m}>
+          {medium === m ? "[•]" : "[ ]"} {m}
+        </button>
+      ))}
+    </div>
+  );
 
   const sortBar = (
     <div className={`${styles.sortBar} caps`}>
@@ -51,6 +70,7 @@ export default function Feed() {
   if (view === "list") {
     return (
       <section key={view} className={styles.feed}>
+        {filterBar}
         {sortBar}
         <ul className={styles.list}>
           {items.map((a) => (
@@ -74,6 +94,7 @@ export default function Feed() {
 
   return (
     <section key={view} className={styles.feed}>
+      {filterBar}
       {sortBar}
       {open && (
         <div ref={openedRef} className={styles.opened}>
