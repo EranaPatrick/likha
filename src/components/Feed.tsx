@@ -29,11 +29,11 @@ export default function Feed() {
   const filterBar = (
     <div className={`${styles.sortBar} caps`}>
       <span>Medium</span>
-      <button type="button" className={styles.sortBtn} onClick={() => setMedium(null)} aria-pressed={!medium}>
+      <button type="button" className={styles.sortBtn} onClick={() => { setMedium(null); setOpen(null); }} aria-pressed={!medium}>
         {!medium ? "[•]" : "[ ]"} All
       </button>
       {media.map((m) => (
-        <button key={m} type="button" className={styles.sortBtn} onClick={() => setMedium(m)} aria-pressed={medium === m}>
+        <button key={m} type="button" className={styles.sortBtn} onClick={() => { setMedium(m); setOpen(null); }} aria-pressed={medium === m}>
           {medium === m ? "[•]" : "[ ]"} {m}
         </button>
       ))}

@@ -37,6 +37,7 @@
 - [x] sort feed (newest / price)
 - [x] medium filter above the feed
   - [x] tighten the gap between filter and sort rows
+  - [x] close the open panel when the filter changes
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors
