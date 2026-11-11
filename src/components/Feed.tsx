@@ -37,6 +37,7 @@ export default function Feed() {
           {medium === m ? "[•]" : "[ ]"} {m}
         </button>
       ))}
+      <span className={styles.count}>[ {items.length} ] works</span>
     </div>
   );
 
