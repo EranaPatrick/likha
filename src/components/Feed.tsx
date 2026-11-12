@@ -9,7 +9,7 @@ import DetailPanel from "./DetailPanel";
 import { useView } from "./ViewContext";
 import styles from "./Feed.module.css";
 
-type Sort = "newest" | "price";
+type Sort = "newest" | "price" | "priceDesc";
 
 // "Oil on canvas" -> "Oil"
 const mediaOf = (m: string) => m.split(" ")[0];
@@ -22,6 +22,7 @@ export default function Feed() {
   const items = useMemo(() => {
     const copy = artworks.filter((a) => !medium || mediaOf(a.medium) === medium);
     if (sort === "price") copy.sort((a, b) => a.price - b.price);
+    else if (sort === "priceDesc") copy.sort((a, b) => b.price - a.price);
     else copy.sort((a, b) => b.year - a.year);
     return copy;
   }, [sort, medium]);
@@ -47,8 +48,8 @@ export default function Feed() {
       <button type="button" className={styles.sortBtn} onClick={() => setSort("newest")} aria-pressed={sort === "newest"}>
         {sort === "newest" ? "[•]" : "[ ]"} Newest
       </button>
-      <button type="button" className={styles.sortBtn} onClick={() => setSort("price")} aria-pressed={sort === "price"}>
-        {sort === "price" ? "[•]" : "[ ]"} Price
+      <button type="button" className={styles.sortBtn} onClick={() => setSort(sort === "price" ? "priceDesc" : "price")} aria-pressed={sort !== "newest"}>
+        {sort !== "newest" ? "[•]" : "[ ]"} Price{sort === "price" ? " (low)" : sort === "priceDesc" ? " (high)" : ""}
       </button>
     </div>
   );

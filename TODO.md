@@ -36,6 +36,7 @@
 - [x] keyboard focus outlines (tabbing around had nothing visible)
 - [x] sort feed (newest / price)
 - [x] medium filter above the feed
+- [x] click price again to flip high / low
   - [x] tighten the gap between filter and sort rows
   - [x] close the open panel when the filter changes
   - [x] show how many works match
