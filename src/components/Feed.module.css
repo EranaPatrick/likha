@@ -232,3 +232,18 @@
   margin-left: auto;
   color: var(--muted);
 }
+
+.clear {
+  margin-right: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  border-radius: 0;
+}

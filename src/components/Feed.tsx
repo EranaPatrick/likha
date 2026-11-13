@@ -38,7 +38,14 @@ export default function Feed() {
           {medium === m ? "[•]" : "[ ]"} {m}
         </button>
       ))}
-      <span className={styles.count}>[ {items.length} ] works</span>
+      <span className={styles.count}>
+        {medium && (
+          <button type="button" className={styles.clear} onClick={() => { setMedium(null); setOpen(null); }}>
+            clear
+          </button>
+        )}
+        [ {items.length} ] works
+      </span>
     </div>
   );
 
