@@ -91,6 +91,14 @@
   object-fit: cover;
 }
 
+.row {
+  transition: border-color 400ms ease-out;
+}
+
+.row:hover {
+  border-bottom-color: var(--ink);
+}
+
 .rowArtist,
 .rowMedium {
   color: var(--muted);
