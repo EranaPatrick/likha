@@ -41,6 +41,7 @@
   - [x] close the open panel when the filter changes
   - [x] show how many works match
   - [x] little clear link when a filter is on
+  - [x] close the open panel when sort changes too
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors

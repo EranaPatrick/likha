@@ -52,10 +52,10 @@ export default function Feed() {
   const sortBar = (
     <div className={`${styles.sortBar} caps`}>
       <span>Sort</span>
-      <button type="button" className={styles.sortBtn} onClick={() => setSort("newest")} aria-pressed={sort === "newest"}>
+      <button type="button" className={styles.sortBtn} onClick={() => { setSort("newest"); setOpen(null); }} aria-pressed={sort === "newest"}>
         {sort === "newest" ? "[•]" : "[ ]"} Newest
       </button>
-      <button type="button" className={styles.sortBtn} onClick={() => setSort(sort === "price" ? "priceDesc" : "price")} aria-pressed={sort !== "newest"}>
+      <button type="button" className={styles.sortBtn} onClick={() => { setSort(sort === "price" ? "priceDesc" : "price"); setOpen(null); }} aria-pressed={sort !== "newest"}>
         {sort !== "newest" ? "[•]" : "[ ]"} Price{sort === "price" ? " (low)" : sort === "priceDesc" ? " (high)" : ""}
       </button>
     </div>
