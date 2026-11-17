@@ -9,7 +9,7 @@ import DetailPanel from "./DetailPanel";
 import { useView } from "./ViewContext";
 import styles from "./Feed.module.css";
 
-type Sort = "newest" | "price" | "priceDesc";
+type Sort = "newest" | "oldest" | "price" | "priceDesc";
 
 // "Oil on canvas" -> "Oil"
 const mediaOf = (m: string) => m.split(" ")[0];
@@ -23,6 +23,7 @@ export default function Feed() {
     const copy = artworks.filter((a) => !medium || mediaOf(a.medium) === medium);
     if (sort === "price") copy.sort((a, b) => a.price - b.price);
     else if (sort === "priceDesc") copy.sort((a, b) => b.price - a.price);
+    else if (sort === "oldest") copy.sort((a, b) => a.year - b.year);
     else copy.sort((a, b) => b.year - a.year);
     return copy;
   }, [sort, medium]);
@@ -55,8 +56,11 @@ export default function Feed() {
       <button type="button" className={styles.sortBtn} onClick={() => { setSort("newest"); setOpen(null); }} aria-pressed={sort === "newest"}>
         {sort === "newest" ? "[•]" : "[ ]"} Newest
       </button>
-      <button type="button" className={styles.sortBtn} onClick={() => { setSort(sort === "price" ? "priceDesc" : "price"); setOpen(null); }} aria-pressed={sort !== "newest"}>
-        {sort !== "newest" ? "[•]" : "[ ]"} Price{sort === "price" ? " (low)" : sort === "priceDesc" ? " (high)" : ""}
+      <button type="button" className={styles.sortBtn} onClick={() => { setSort("oldest"); setOpen(null); }} aria-pressed={sort === "oldest"}>
+        {sort === "oldest" ? "[•]" : "[ ]"} Oldest
+      </button>
+      <button type="button" className={styles.sortBtn} onClick={() => { setSort(sort === "price" ? "priceDesc" : "price"); setOpen(null); }} aria-pressed={sort === "price" || sort === "priceDesc"}>
+        {sort === "price" || sort === "priceDesc" ? "[•]" : "[ ]"} Price{sort === "price" ? " (low)" : sort === "priceDesc" ? " (high)" : ""}
       </button>
     </div>
   );
