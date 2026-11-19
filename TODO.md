@@ -43,6 +43,9 @@
   - [x] little clear link when a filter is on
   - [x] close the open panel when sort changes too
   - [x] oldest sort too
+  - [x] flow/list choice sticks too
+  - [x] list rows open the panel (title is a button now)
+  - [ ] panel in list view should sit under the row, not above the list
   - [x] remember sort + filter when going back from an artist page
 
 ## design notes for myself

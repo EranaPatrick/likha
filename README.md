@@ -13,6 +13,10 @@ npm run dev
 
 then open http://localhost:3000
 
+## notes
+
+- sort, filter and flow/list are kept in sessionStorage so they survive going to an artist page and back
+
 ## stack
 
 - next.js (app router) + typescript
