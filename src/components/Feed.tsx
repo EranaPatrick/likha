@@ -19,6 +19,28 @@ export default function Feed() {
   const { view } = useView();
   const [sort, setSort] = useState<Sort>("newest");
   const [medium, setMedium] = useState<string | null>(null);
+  const [open, setOpen] = useState<Artwork | null>(null);
+  const [restored, setRestored] = useState(false);
+
+  // pick the sort + filter back up after coming back from an artist page
+  useEffect(() => {
+    queueMicrotask(() => {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem("likha-feed") || "{}");
+        if (["newest", "oldest", "price", "priceDesc"].includes(saved.sort)) setSort(saved.sort);
+        if (saved.medium && media.includes(saved.medium)) setMedium(saved.medium);
+      } catch {}
+      setRestored(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!restored) return;
+    try {
+      sessionStorage.setItem("likha-feed", JSON.stringify({ sort, medium }));
+    } catch {}
+  }, [sort, medium, restored]);
+
   const items = useMemo(() => {
     const copy = artworks.filter((a) => !medium || mediaOf(a.medium) === medium);
     if (sort === "price") copy.sort((a, b) => a.price - b.price);
@@ -64,7 +86,6 @@ export default function Feed() {
       </button>
     </div>
   );
-  const [open, setOpen] = useState<Artwork | null>(null);
   const openedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

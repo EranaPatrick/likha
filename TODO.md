@@ -43,7 +43,7 @@
   - [x] little clear link when a filter is on
   - [x] close the open panel when sort changes too
   - [x] oldest sort too
-  - [ ] remember sort + filter when going back from an artist page
+  - [x] remember sort + filter when going back from an artist page
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors
