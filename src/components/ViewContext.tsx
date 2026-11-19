@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export type View = "flow" | "list";
 
@@ -11,8 +11,24 @@ const ViewContext = createContext<{
 
 export function ViewProvider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState<View>("flow");
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      try {
+        if (sessionStorage.getItem("likha-view") === "list") setView("list");
+      } catch {}
+    });
+  }, []);
+
+  const change = (v: View) => {
+    setView(v);
+    try {
+      sessionStorage.setItem("likha-view", v);
+    } catch {}
+  };
+
   return (
-    <ViewContext.Provider value={{ view, setView }}>
+    <ViewContext.Provider value={{ view, setView: change }}>
       {children}
     </ViewContext.Provider>
   );
