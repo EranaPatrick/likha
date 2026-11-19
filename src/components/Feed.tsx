@@ -106,13 +106,23 @@ export default function Feed() {
       <section key={view} className={styles.feed}>
         {filterBar}
         {sortBar}
+        {open && (
+          <div ref={openedRef} className={styles.opened}>
+            <div className={styles.openedImg}>
+              <Image src={open.image} alt={open.title} width={open.width} height={open.height} sizes="50vw" />
+            </div>
+            <DetailPanel artwork={open} onClose={() => setOpen(null)} />
+          </div>
+        )}
         <ul className={styles.list}>
           {items.map((a) => (
             <li key={a.id} className={`${styles.row} caps`}>
               <span className={styles.thumb}>
                 <Image src={a.image} alt={a.title} fill sizes="80px" />
               </span>
-              <span className={styles.rowTitle}>{a.title}</span>
+              <button type="button" className={styles.rowTitle} onClick={() => setOpen(a)}>
+                {a.title}
+              </button>
               <Link href={`/artists/${a.artist}`} className={styles.rowArtist}>
                 {getArtist(a.artist)?.name}
               </Link>

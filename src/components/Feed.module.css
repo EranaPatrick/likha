@@ -255,3 +255,16 @@
   cursor: pointer;
   border-radius: 0;
 }
+
+button.rowTitle {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-align: left;
+  cursor: pointer;
+}
