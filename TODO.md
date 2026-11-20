@@ -45,7 +45,7 @@
   - [x] oldest sort too
   - [x] flow/list choice sticks too
   - [x] list rows open the panel (title is a button now)
-  - [ ] panel in list view should sit under the row, not above the list
+  - [x] panel in list view sits under the row now
   - [x] remember sort + filter when going back from an artist page
 
 ## design notes for myself
