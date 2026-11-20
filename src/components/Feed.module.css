@@ -149,6 +149,17 @@
   margin-bottom: 120px;
 }
 
+.openedRow {
+  scroll-margin-top: 72px;
+  list-style: none;
+  padding: 32px 0 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.openedRow .opened {
+  margin-bottom: 0;
+}
+
 .openedImg img {
   display: block;
   width: 100%;

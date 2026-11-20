@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { artworks, getArtist, formatPrice, type Artwork } from "@/data/artworks";
@@ -86,7 +86,7 @@ export default function Feed() {
       </button>
     </div>
   );
-  const openedRef = useRef<HTMLDivElement>(null);
+  const openedRef = useRef<HTMLDivElement & HTMLLIElement>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -106,17 +106,10 @@ export default function Feed() {
       <section key={view} className={styles.feed}>
         {filterBar}
         {sortBar}
-        {open && (
-          <div ref={openedRef} className={styles.opened}>
-            <div className={styles.openedImg}>
-              <Image src={open.image} alt={open.title} width={open.width} height={open.height} sizes="50vw" />
-            </div>
-            <DetailPanel artwork={open} onClose={() => setOpen(null)} />
-          </div>
-        )}
         <ul className={styles.list}>
           {items.map((a) => (
-            <li key={a.id} className={`${styles.row} caps`}>
+            <Fragment key={a.id}>
+            <li className={`${styles.row} caps`}>
               <span className={styles.thumb}>
                 <Image src={a.image} alt={a.title} fill sizes="80px" />
               </span>
@@ -130,6 +123,17 @@ export default function Feed() {
               <span className={styles.rowPrice}>{formatPrice(a.price)}</span>
               <span className={styles.rowCount}>[ {a.likes} ]</span>
             </li>
+            {open?.id === a.id && (
+              <li ref={openedRef as React.Ref<HTMLLIElement>} className={styles.openedRow}>
+                <div className={styles.opened}>
+                  <div className={styles.openedImg}>
+                    <Image src={open.image} alt={open.title} width={open.width} height={open.height} sizes="50vw" />
+                  </div>
+                  <DetailPanel artwork={open} onClose={() => setOpen(null)} />
+                </div>
+              </li>
+            )}
+            </Fragment>
           ))}
         </ul>
       </section>
