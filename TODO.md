@@ -47,6 +47,7 @@
   - [x] list rows open the panel (title is a button now)
   - [x] panel in list view sits under the row now
   - [x] remember sort + filter when going back from an artist page
+  - [x] sort by most liked
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors

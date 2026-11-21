@@ -9,7 +9,7 @@ import DetailPanel from "./DetailPanel";
 import { useView } from "./ViewContext";
 import styles from "./Feed.module.css";
 
-type Sort = "newest" | "oldest" | "price" | "priceDesc";
+type Sort = "newest" | "oldest" | "price" | "priceDesc" | "liked";
 
 // "Oil on canvas" -> "Oil"
 const mediaOf = (m: string) => m.split(" ")[0];
@@ -27,7 +27,7 @@ export default function Feed() {
     queueMicrotask(() => {
       try {
         const saved = JSON.parse(sessionStorage.getItem("likha-feed") || "{}");
-        if (["newest", "oldest", "price", "priceDesc"].includes(saved.sort)) setSort(saved.sort);
+        if (["newest", "oldest", "price", "priceDesc", "liked"].includes(saved.sort)) setSort(saved.sort);
         if (saved.medium && media.includes(saved.medium)) setMedium(saved.medium);
       } catch {}
       setRestored(true);
@@ -45,6 +45,7 @@ export default function Feed() {
     const copy = artworks.filter((a) => !medium || mediaOf(a.medium) === medium);
     if (sort === "price") copy.sort((a, b) => a.price - b.price);
     else if (sort === "priceDesc") copy.sort((a, b) => b.price - a.price);
+    else if (sort === "liked") copy.sort((a, b) => b.likes - a.likes);
     else if (sort === "oldest") copy.sort((a, b) => a.year - b.year);
     else copy.sort((a, b) => b.year - a.year);
     return copy;
@@ -80,6 +81,9 @@ export default function Feed() {
       </button>
       <button type="button" className={styles.sortBtn} onClick={() => { setSort("oldest"); setOpen(null); }} aria-pressed={sort === "oldest"}>
         {sort === "oldest" ? "[•]" : "[ ]"} Oldest
+      </button>
+      <button type="button" className={styles.sortBtn} onClick={() => { setSort("liked"); setOpen(null); }} aria-pressed={sort === "liked"}>
+        {sort === "liked" ? "[•]" : "[ ]"} Liked
       </button>
       <button type="button" className={styles.sortBtn} onClick={() => { setSort(sort === "price" ? "priceDesc" : "price"); setOpen(null); }} aria-pressed={sort === "price" || sort === "priceDesc"}>
         {sort === "price" || sort === "priceDesc" ? "[•]" : "[ ]"} Price{sort === "price" ? " (low)" : sort === "priceDesc" ? " (high)" : ""}
