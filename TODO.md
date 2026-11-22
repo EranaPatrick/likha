@@ -48,6 +48,8 @@
   - [x] panel in list view sits under the row now
   - [x] remember sort + filter when going back from an artist page
   - [x] sort by most liked
+  - [x] search box (title / artist)
+  - [x] empty message when nothing matches
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors

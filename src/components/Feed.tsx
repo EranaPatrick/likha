@@ -132,6 +132,7 @@ export default function Feed() {
         {searchBar}
         {filterBar}
         {sortBar}
+        {items.length === 0 && <p className={`${styles.empty} caps`}>nothing matches that</p>}
         <ul className={styles.list}>
           {items.map((a) => (
             <Fragment key={a.id}>
@@ -179,6 +180,7 @@ export default function Feed() {
           <DetailPanel artwork={open} onClose={() => setOpen(null)} />
         </div>
       )}
+      {items.length === 0 && <p className={`${styles.empty} caps`}>nothing matches that</p>}
       <div className={styles.flow}>
         {items.map((a, i) => (
           <div key={a.id} className={`${styles.cell} ${styles["v" + (i % 4)]}`}>
