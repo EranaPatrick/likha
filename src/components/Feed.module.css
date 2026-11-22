@@ -279,3 +279,23 @@ button.rowTitle {
   text-align: left;
   cursor: pointer;
 }
+
+.search {
+  flex: 1;
+  min-width: 0;
+  max-width: 320px;
+  padding: 0 0 2px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--ink);
+  outline-offset: 4px;
+}
+
+.search::placeholder {
+  color: var(--muted);
+}

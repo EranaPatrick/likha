@@ -19,6 +19,7 @@ export default function Feed() {
   const { view } = useView();
   const [sort, setSort] = useState<Sort>("newest");
   const [medium, setMedium] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
   const [open, setOpen] = useState<Artwork | null>(null);
   const [restored, setRestored] = useState(false);
 
@@ -42,14 +43,34 @@ export default function Feed() {
   }, [sort, medium, restored]);
 
   const items = useMemo(() => {
-    const copy = artworks.filter((a) => !medium || mediaOf(a.medium) === medium);
+    const q = query.trim().toLowerCase();
+    const copy = artworks.filter(
+      (a) =>
+        (!medium || mediaOf(a.medium) === medium) &&
+        (!q || a.title.toLowerCase().includes(q) || (getArtist(a.artist)?.name ?? "").toLowerCase().includes(q))
+    );
     if (sort === "price") copy.sort((a, b) => a.price - b.price);
     else if (sort === "priceDesc") copy.sort((a, b) => b.price - a.price);
     else if (sort === "liked") copy.sort((a, b) => b.likes - a.likes);
     else if (sort === "oldest") copy.sort((a, b) => a.year - b.year);
     else copy.sort((a, b) => b.year - a.year);
     return copy;
-  }, [sort, medium]);
+  }, [sort, medium, query]);
+
+  const searchBar = (
+    <div className={`${styles.sortBar} caps`}>
+      <label htmlFor="feed-search">Search</label>
+      <input
+        id="feed-search"
+        type="text"
+        className={styles.search}
+        value={query}
+        placeholder="title or artist"
+        autoComplete="off"
+        onChange={(e) => { setQuery(e.target.value); setOpen(null); }}
+      />
+    </div>
+  );
 
   const filterBar = (
     <div className={`${styles.sortBar} caps`}>
@@ -63,8 +84,8 @@ export default function Feed() {
         </button>
       ))}
       <span className={styles.count}>
-        {medium && (
-          <button type="button" className={styles.clear} onClick={() => { setMedium(null); setOpen(null); }}>
+        {(medium || query) && (
+          <button type="button" className={styles.clear} onClick={() => { setMedium(null); setQuery(""); setOpen(null); }}>
             clear
           </button>
         )}
@@ -108,6 +129,7 @@ export default function Feed() {
   if (view === "list") {
     return (
       <section key={view} className={styles.feed}>
+        {searchBar}
         {filterBar}
         {sortBar}
         <ul className={styles.list}>
@@ -146,6 +168,7 @@ export default function Feed() {
 
   return (
     <section key={view} className={styles.feed}>
+      {searchBar}
       {filterBar}
       {sortBar}
       {open && (
