@@ -68,6 +68,9 @@ export default function Feed() {
         placeholder="title or artist"
         autoComplete="off"
         onChange={(e) => { setQuery(e.target.value); setOpen(null); }}
+        onKeyDown={(e) => {
+          if (e.key === "Escape" && query) { e.stopPropagation(); setQuery(""); }
+        }}
       />
     </div>
   );
