@@ -52,6 +52,7 @@
   - [x] empty message when nothing matches
   - [x] esc clears the search box
   - [x] search medium too
+  - [x] search year + city too
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors

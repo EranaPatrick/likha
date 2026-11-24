@@ -47,7 +47,7 @@ export default function Feed() {
     const copy = artworks.filter(
       (a) =>
         (!medium || mediaOf(a.medium) === medium) &&
-        (!q || a.title.toLowerCase().includes(q) || a.medium.toLowerCase().includes(q) || (getArtist(a.artist)?.name ?? "").toLowerCase().includes(q))
+        (!q || a.title.toLowerCase().includes(q) || a.medium.toLowerCase().includes(q) || (getArtist(a.artist)?.name ?? "").toLowerCase().includes(q) || (getArtist(a.artist)?.city ?? "").toLowerCase().includes(q) || String(a.year).includes(q))
     );
     if (sort === "price") copy.sort((a, b) => a.price - b.price);
     else if (sort === "priceDesc") copy.sort((a, b) => b.price - a.price);
