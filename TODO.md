@@ -53,6 +53,8 @@
   - [x] esc clears the search box
   - [x] search medium too
   - [x] search year + city too
+  - [x] prev / next artist at the bottom of artist pages
+  - [x] show artist's mediums on the /artists rows
 
 ## design notes for myself
 - keep it plain. off white bg, black text, grey captions, no accent colors

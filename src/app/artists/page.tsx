@@ -13,13 +13,18 @@ export default function ArtistsPage() {
 
       <ul className={styles.list}>
         {artists.map((a) => {
-          const count = artworks.filter((w) => w.artist === a.slug).length;
+          const works = artworks.filter((w) => w.artist === a.slug);
+          const count = works.length;
+          const mediums = [...new Set(works.map((w) => w.medium))].join(" / ");
           return (
             <li key={a.slug} className={styles.row}>
               <Link href={`/artists/${a.slug}`} className={`${styles.name} caps`}>
                 {a.name}
               </Link>
-              <span className={`${styles.city} caps`}>{a.city}</span>
+              <span className={`${styles.city} caps`}>
+                {a.city}
+                {mediums && <span className={styles.mediums}>{mediums}</span>}
+              </span>
               <span className={`${styles.count} caps`}>[ {count} ]</span>
             </li>
           );

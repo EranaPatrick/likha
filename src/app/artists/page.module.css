@@ -52,3 +52,8 @@
     grid-column: 2;
   }
 }
+
+.mediums {
+  display: block;
+  margin-top: 6px;
+}
