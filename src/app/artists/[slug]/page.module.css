@@ -46,3 +46,18 @@
     row-gap: 64px;
   }
 }
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 128px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.pager a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

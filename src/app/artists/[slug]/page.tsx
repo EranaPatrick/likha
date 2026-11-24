@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ArtistWorks from "@/components/ArtistWorks";
 import { artists, artworks, getArtist } from "@/data/artworks";
@@ -27,6 +28,9 @@ export default async function ArtistPage({
   if (!artist) notFound();
 
   const works = artworks.filter((a) => a.artist === artist.slug);
+  const i = artists.findIndex((a) => a.slug === artist.slug);
+  const prev = artists[(i - 1 + artists.length) % artists.length];
+  const next = artists[(i + 1) % artists.length];
 
   return (
     <main className={styles.page}>
@@ -42,6 +46,11 @@ export default async function ArtistPage({
       </header>
 
       <ArtistWorks works={works} />
+
+      <nav className={`${styles.pager} caps`}>
+        <Link href={`/artists/${prev.slug}`}>[ &lt; ] {prev.name}</Link>
+        <Link href={`/artists/${next.slug}`}>{next.name} [ &gt; ]</Link>
+      </nav>
     </main>
   );
 }
