@@ -33,6 +33,7 @@
   - [x] check header + featured at 360px
 - [x] 404 page
 - [ ] deploy somewhere
+- [ ] about page needs a real contact thing
 - [x] keyboard focus outlines (tabbing around had nothing visible)
 - [x] sort feed (newest / price)
 - [x] medium filter above the feed

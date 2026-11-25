@@ -18,6 +18,10 @@ export default function AboutPage() {
           want to like a piece, follow an artist or send an inquiry.
         </p>
         <p>
+          An inquiry goes straight to the artist. Prices are listed in pesos
+          and every sale is worked out between you and them.
+        </p>
+        <p>
           Artists can switch on a profile and upload their own work. Featured
           pieces at the top are picked by hand.
         </p>
