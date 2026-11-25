@@ -17,6 +17,9 @@ then open http://localhost:3000
 
 - sort, filter and flow/list are kept in sessionStorage so they survive going to an artist page and back
 
+- more images go in `public/art/`, around 900px wide, public domain only. dont hotlink museum sites, they get blocked
+- prices are plain numbers in the data file, `formatPrice` adds the peso sign
+
 ## stack
 
 - next.js (app router) + typescript
