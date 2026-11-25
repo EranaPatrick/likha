@@ -13,6 +13,11 @@
   color: var(--muted);
 }
 
+.links {
+  display: flex;
+  gap: 20px;
+}
+
 .link {
   text-decoration: underline;
   text-underline-offset: 3px;

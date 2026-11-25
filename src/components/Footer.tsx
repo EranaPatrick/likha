@@ -6,9 +6,14 @@ export default function Footer() {
     <footer className={styles.footer}>
       <span className="caps">Likha</span>
       <span className={styles.note}>Art by independent artists</span>
-      <Link href="/about" className={`caps ${styles.link}`}>
-        About
-      </Link>
+      <span className={styles.links}>
+        <Link href="/artists" className={`caps ${styles.link}`}>
+          Artists
+        </Link>
+        <Link href="/about" className={`caps ${styles.link}`}>
+          About
+        </Link>
+      </span>
     </footer>
   );
 }
