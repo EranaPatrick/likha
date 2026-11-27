@@ -9,11 +9,14 @@ import styles from "./ArtistWorks.module.css";
 
 export default function ArtistWorks({ works }: { works: Artwork[] }) {
   const [open, setOpen] = useState<Artwork | null>(null);
-  const [sort, setSort] = useState<"newest" | "oldest">("newest");
+  const [sort, setSort] = useState<"newest" | "oldest" | "price" | "priceDesc">("newest");
 
   const sorted = useMemo(() => {
     const copy = [...works];
-    copy.sort((a, b) => (sort === "newest" ? b.year - a.year : a.year - b.year));
+    if (sort === "price") copy.sort((a, b) => a.price - b.price);
+    else if (sort === "priceDesc") copy.sort((a, b) => b.price - a.price);
+    else if (sort === "oldest") copy.sort((a, b) => a.year - b.year);
+    else copy.sort((a, b) => b.year - a.year);
     return copy;
   }, [works, sort]);
 
@@ -43,6 +46,9 @@ export default function ArtistWorks({ works }: { works: Artwork[] }) {
           </button>
           <button type="button" className={styles.sortBtn} onClick={() => { setSort("oldest"); setOpen(null); }} aria-pressed={sort === "oldest"}>
             {sort === "oldest" ? "[•]" : "[ ]"} Oldest
+          </button>
+          <button type="button" className={styles.sortBtn} onClick={() => { setSort(sort === "price" ? "priceDesc" : "price"); setOpen(null); }} aria-pressed={sort === "price" || sort === "priceDesc"}>
+            {sort === "price" || sort === "priceDesc" ? "[•]" : "[ ]"} Price{sort === "price" ? " (low)" : sort === "priceDesc" ? " (high)" : ""}
           </button>
         </div>
       )}

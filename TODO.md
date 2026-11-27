@@ -34,7 +34,7 @@
 - [x] 404 page
 - [ ] deploy somewhere
 - [ ] about page needs a real contact thing
-- [ ] artist page: sort their works too?
+- [x] artist page: sort their works too?
 - [x] keyboard focus outlines (tabbing around had nothing visible)
 - [x] sort feed (newest / price)
 - [x] medium filter above the feed
