@@ -33,7 +33,7 @@
   - [x] check header + featured at 360px
 - [x] 404 page
 - [ ] deploy somewhere
-- [ ] about page needs a real contact thing
+- [x] about page needs a real contact thing (placeholder email for now, swap later)
 - [x] artist page: sort their works too?
 - [x] keyboard focus outlines (tabbing around had nothing visible)
 - [x] sort feed (newest / price)

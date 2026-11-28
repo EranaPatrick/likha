@@ -31,3 +31,14 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+.contact {
+  color: var(--grey, #777);
+  font-size: 0.85rem;
+}
+
+.contact a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

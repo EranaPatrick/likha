@@ -25,6 +25,9 @@ export default function AboutPage() {
           Artists can switch on a profile and upload their own work. Featured
           pieces at the top are picked by hand.
         </p>
+        <p className={styles.contact}>
+          Questions about the site: <a href="mailto:hello@likha.example">hello@likha.example</a>
+        </p>
         <p className={`${styles.links} caps`}>
           <Link href="/artists">Artists</Link>
           <Link href="/">Back to the work</Link>
